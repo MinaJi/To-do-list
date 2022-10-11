@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Paper } from "@mui/material";
 import styled from "styled-components";
 import TodoHeader from "./TodoHeader";
+import TodoItems from "./TodoItems";
 
 const StyledDiv = styled.div`
   width: 500px;
@@ -22,6 +23,7 @@ function TodoTemplate() {
   return (
     <StyledDiv>
       <TodoHeader />
+      <TodoItems />
     </StyledDiv>
   );
 }
