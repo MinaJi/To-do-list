@@ -15,7 +15,7 @@ const StyledGrid = styled(Grid)`
     font-size: 28px;
     font-weight: bold;
     color: #252525;
-    padding-top: 23px;
+    padding-top: 33px;
     padding-left: 13px;
   }
 `;
@@ -59,7 +59,7 @@ function TodoHeader() {
 
   return (
     <Container>
-      <StyledGrid item xs={12} spacing={10}>
+      <StyledGrid item xs={12}>
         {year}년 {month}월 {day}일
       </StyledGrid>
       <StyledGrid2>{nowWeekDay}</StyledGrid2>

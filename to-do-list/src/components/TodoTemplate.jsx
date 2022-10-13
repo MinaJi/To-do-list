@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Paper } from "@mui/material";
 import styled from "styled-components";
 import TodoHeader from "./TodoHeader";
-import TodoItems from "./TodoItems";
+import TodoList from "./TodoList";
 
 const StyledDiv = styled.div`
   width: 500px;
@@ -19,12 +19,9 @@ const StyledDiv = styled.div`
   }
 `;
 
-function TodoTemplate() {
+function TodoTemplate({children}) {
   return (
-    <StyledDiv>
-      <TodoHeader />
-      <TodoItems />
-    </StyledDiv>
+    <StyledDiv>{children}</StyledDiv>
   );
 }
 

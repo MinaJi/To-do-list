@@ -6,7 +6,7 @@ const StyledDiv = styled.div`
   font-family: "Lexend", sans-serif;
   font-size: 63px;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   color: #252525;
 `;
 

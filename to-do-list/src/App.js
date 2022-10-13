@@ -2,6 +2,8 @@ import "./App.css";
 import { createGlobalStyle } from "styled-components";
 import TodoTemplate from "./components/TodoTemplate";
 import Header from "./components/Header";
+import TodoHeader from "./components/TodoHeader";
+import TodoList from "./components/TodoList";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -27,7 +29,10 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
-      <TodoTemplate />
+      <TodoTemplate>
+        <TodoHeader />
+        <TodoList />
+      </TodoTemplate>
     </>
   );
 }
