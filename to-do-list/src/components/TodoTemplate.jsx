@@ -6,7 +6,7 @@ import TodoList from "./TodoList";
 
 const StyledDiv = styled.div`
   width: 500px;
-  height: 500px;
+  height: 600px;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.5);
   position: relative;

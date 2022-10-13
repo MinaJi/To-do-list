@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import DoneIcon from "@mui/icons-material/Done";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { useTodoDispatch } from "../TodoContext";
 
 const CheckBox = styled.div`
   width: 30px;
@@ -47,7 +48,7 @@ const DeleteContents = styled.div`
 const StyledDiv = styled.div`
   display: flex;
   align-items: center;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   &:hover {
     ${DeleteContents} {
       display: initial;
@@ -56,15 +57,21 @@ const StyledDiv = styled.div`
 `;
 
 function TodoItems({ id, done, contents }) {
+  const dispatch = useTodoDispatch();
+  const onToggle = () => dispatch({ type: "TOGGLE", id });
+  const onDelete = () => dispatch({ type: "DELETE", id });
+
   return (
     <StyledDiv>
-      <CheckBox done={done}>{done && <DoneIcon />}</CheckBox>
+      <CheckBox onClick={onToggle} done={done}>
+        {done && <DoneIcon />}
+      </CheckBox>
       <Contents done={done}>{contents}</Contents>
-      <DeleteContents>
+      <DeleteContents onClick={onDelete}>
         <DeleteForeverIcon />
       </DeleteContents>
     </StyledDiv>
   );
 }
 
-export default TodoItems;
+export default React.memo(TodoItems);

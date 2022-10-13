@@ -1,6 +1,7 @@
 import { Container } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
+import { useTodoState } from "../TodoContext";
 import TodoItems from "./TodoItems";
 
 const StyledDiv = styled.div`
@@ -10,12 +11,19 @@ const StyledDiv = styled.div`
 `;
 
 function TodoList() {
+  const todos = useTodoState();
+
   return (
-      <StyledDiv>
-        <TodoItems contents="식빵 사기" done={true} />
-        <TodoItems contents="책 반납하기" done={true} />
-        <TodoItems contents="NewJeans 뮤비 시청하기" done={false} />
-      </StyledDiv>
+    <StyledDiv>
+      {todos.map((todo) => (
+        <TodoItems
+          key={todo.id}
+          id={todo.id}
+          contents={todo.contents}
+          done={todo.done}
+        />
+      ))}
+    </StyledDiv>
   );
 }
 

@@ -2,13 +2,7 @@ import { Divider, Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 import styled from "styled-components";
-
-// const StyledDiv = styled.div`
-//   padding-top: 10px;
-//   padding-left: 30px;
-//   font-family: 'Noto Sans KR', sans-serif;
-//   font-size: 20px;
-// `;
+import { useTodoState } from "../TodoContext";
 
 const StyledGrid = styled(Grid)`
   && {
@@ -55,7 +49,10 @@ function TodoHeader() {
     "토요일",
   ];
   const nowWeekDay = weekDay[new Date().getDay()];
-  const task = 0;
+
+  const todos = useTodoState();
+  // console.log(todos);
+  const undoneTasks = todos.filter((todo) => !todo.done);
 
   return (
     <Container>
@@ -63,7 +60,7 @@ function TodoHeader() {
         {year}년 {month}월 {day}일
       </StyledGrid>
       <StyledGrid2>{nowWeekDay}</StyledGrid2>
-      <StyledGrid3>할 일 {task}개 남음</StyledGrid3>
+      <StyledGrid3>할 일 {undoneTasks.length}개 남음</StyledGrid3>
       <Divider />
     </Container>
   );
